@@ -119,16 +119,16 @@ scoop bucket rm main
 scoop bucket add main
 
 Write-Host "INFO: Adding scoop bucket"
-scoop bucket add emulators https://github.com/borger/scoop-emulators.git
-Write-Host "INFO: Installing Citra"
-scoop install citra
-scoop install ppsspp-dev
-scoop install yuzu
+scoop bucket add emulators https://github.com/Bomchoo/scoop-emulators.git
+Write-Host "INFO: Installing Lime3DS"
+scoop install lime3ds
+scoop install ppsspp
+scoop install ryujinx
 scoop install rpcs3
 
-$citraInstallDir = "$env:userprofile\scoop\apps\citra\current"
+$lime3dsInstallDir = "$env:userprofile\scoop\apps\lime3ds\current"
 $ppssppInstallDir = "$env:userprofile\scoop\apps\ppsspp\current"
-$yuzuInstallDir = "$env:userprofile\scoop\apps\yuzu\current"
+$ryujinxInstallDir = "$env:userprofile\scoop\apps\ryujinx\current"
 $rpcs3InstallDir = "$env:userprofile\scoop\apps\rpcs3\current"
 
 choco install 7zip --no-progress -y | Out-Null
@@ -269,10 +269,10 @@ if(Test-Path $psxEmulator){
 }
 
 # PS2 Setup
-$ps2EmulatorMsi = "$requirementsFolder\pcsx2-1.6.0-setup.exe"
+$ps2EmulatorMsi = "$requirementsFolder\pcsx2-v2.0.2-windows-x64-installer.exe"
 if(Test-Path $ps2EmulatorMsi){
     $ps2EmulatorPath = "$env:userprofile\.emulationstation\systems\pcsx2\"
-    $ps2Binary = "$ps2EmulatorPath\`$TEMP\PCSX2 1.6.0\pcsx2.exe"
+    $ps2Binary = "$ps2EmulatorPath\`$TEMP\PCSX2 2.0.2\pcsx2.exe"
     $ps2BiosPath = "$ps2EmulatorPath\bios\"
     Expand-Archive -Path $ps2EmulatorMsi -Destination $ps2EmulatorPath | Out-Null
     New-Item -ItemType Directory -Force -Path $ps2BiosPath | Out-Null
@@ -662,7 +662,7 @@ $newConfig = "<systemList>
         <fullname>Switch</fullname>
         <path>$switchPath</path>
         <extension>.nsp .NSP .zip .ZIP .7z .nso .NSO .nro .NRO .nca .NCA .xci .XCI</extension>
-        <command>$yuzuInstallDir\yuzu.exe %ROM%</command>
+        <command>$ryujinxInstallDir\Ryujinx.exe %ROM%</command>
         <platform>switch</platform>
         <theme>switch</theme>
     </system>
@@ -689,7 +689,7 @@ $newConfig = "<systemList>
         <fullname>Nintendo 3DS</fullname>
         <path>$3dsPath</path>
         <extension>.3ds .3DS .3dsx .3DSX .cci .CCI .cxi .CXI .elf .ELF</extension>
-        <command>$citraInstallDir\citra.exe %ROM%</command>
+        <command>$lime3dsInstallDir\lime3ds.exe %ROM%</command>
         <platform>n3ds</platform>
         <theme>3ds</theme>
     </system>
