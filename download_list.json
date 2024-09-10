@@ -13,8 +13,8 @@
 			"url": "http://www.epsxe.com/files/ePSXe205.zip"
 		},
 		{
-			"file": "pcsx2-1.6.0-setup.exe",
-			"url": "https://delivery2.filecroco.com/kits_6/pcsx2-1.6.0-setup.exe"
+			"file": "pcsx2-v2.0.2-windows-x64-installer.exe",
+			"url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.2/pcsx2-v2.0.2-windows-x64-installer.exe"
 		},
 		{
 			"file": "RetroArch.7z",
